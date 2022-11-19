@@ -13,7 +13,7 @@ before_script:
 script:
   - echo "Here we are building the image"
   - docker build -t simple-app-node .
-  - docker tag simple-node muhammedismaildev/simple-app-node:latest
+  - docker tag simple-app-node muhammedismaildev/simple-app-node:latest
   # pushing the image to the docker reg
   - docker push muhammedismaildev/simple-app-node
   - echo "image has been pushed"
