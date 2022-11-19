@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - 13
+
+install:
+  - echo "in the installation process"
+
+before_script:
+  - echo "before running the building script"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - echo "Here we are building the image"
+  - docker build -t simple-app-node .
+  - docker tag simple-node muhammedismaildev/simple-app-node:latest
+  # pushing the image to the docker reg
+  - docker push muhammedismaildev/simple-app-node
+  - echo "image has been pushed"
